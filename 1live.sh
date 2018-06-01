@@ -1,3 +1,3 @@
-echo "1Live" > /home/haetze/usefulCommands/.radio
+echo "1Live" > /home/haetze/.xmonad/.radio
 mpg123 http://wdr-1live-live.icecast.wdr.de/wdr/1live/live/mp3/128/stream.mp3
 
