@@ -21,7 +21,7 @@ main = do
         , ((mod1Mask, xK_s), spawn "scrot '%Y-%m-%d_%H:%M:%S.png' -e 'mv $f ~/shots/'" )
         , ((mod1Mask, xK_u), spawn "xterm -fa 'Monospace' -fs 12x24" )
         , ((mod1Mask, xK_f)
-          , spawn "find ~/ | sed 's/ /\\ /g' | sort -f | dmenu -i -l 20 -nb '#2e3436' -nf '#9999CC' | /home/haetze/usefulCommands/openTerminal.sh" )
+          , spawn "find ~/ | sed 's/ /\\ /g' | sort -f | dmenu -i -l 20 -nb '#2e3436' -nf '#9999CC' | /home/haetze/.xmonad/openTerminal.sh" )
         , ((mod1Mask, xK_F1), spawn "/home/haetze/.xmonad/1live.sh")
         , ((mod1Mask, xK_F2), spawn "/home/haetze/.xmonad/pkill.sh mpg123 /home/haetze/.xmonad/.radio")
         , ((mod1Mask, xK_F12), spawn "sysctl hw.snd.default_unit=6")
