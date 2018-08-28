@@ -12,8 +12,8 @@ main = do
     xmonad $ docks $ def
         { manageHook = manageDocks <+> manageHook def
         , layoutHook = avoidStruts  $  layoutHook def
-        , logHook = dynamicLogWithPP xmobarPP
-                        { ppOutput = \s-> return ()
+        , logHook = dynamicLogWithPP $ xmobarPP
+                        { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
                         }
         } `additionalKeys`
