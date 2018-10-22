@@ -26,6 +26,8 @@ main = do
         , ((mod1Mask, xK_F2), spawn "/home/haetze/.xmonad/pkill.sh mpg123 /home/haetze/.xmonad/.radio")
         , ((mod1Mask, xK_F12), spawn "sysctl hw.snd.default_unit=6")
         , ((mod1Mask, xK_F11), spawn "sysctl hw.snd.default_unit=4")
+        , ((mod1Mask, xK_F7), spawn "amixer set Master 5%-")
+        , ((mod1Mask, xK_F8), spawn "amixer set Master 5%+")
         , ((mod1Mask, xK_F9), spawn "amixer set Master 1%-")
         , ((mod1Mask, xK_F10), spawn "amixer set Master 1%+")
         ]
