@@ -15,7 +15,6 @@ Config { borderColor = "black"
        , overrideRedirect = True
        , sepChar = "%"
        , additionalFonts = []
-       , font = "xft:Bitstream Vera Sans Mono:size=18:bold:anitalias=true"
        , alignSep = "}{"
        
        , commands = [Run Com "/home/haetze/.xmonad/.battery" [] "battery" 10
@@ -25,5 +24,5 @@ Config { borderColor = "black"
                     ,Run Com "cat" ["/home/haetze/.xmonad/.radio"] "radio" 10
                     ,Run StdinReader
            ]
-       , template = "<fc=#ee9a00>%date%</fc>| %uname% | %battery% | <action=`amixer set Master 0` button=1> %sound% on %audio% </action> | %radio% | }{ | %StdinReader%" 
+       , template = "<fc=#ee9a00>%date%</fc>| %uname% | %battery% | <action=`amixer set Master 0` button=1> %sound% on %audio% </action> | %radio% |" 
        }
