@@ -16,7 +16,7 @@ Config { borderColor = "black"
        , sepChar = "%"
        , additionalFonts = []
        , alignSep = "}{"
-       
+       , font = "xft:Open Sans:size=10, xft:Times New Roman-10:italic"
        , commands = [Run Com "/home/haetze/.xmonad/.battery" [] "battery" 10
                     ,Run Com "/home/haetze/.xmonad/.audio" [] "audio" 10
                     ,Run Com "/home/haetze/.xmonad/.snd" [] "sound" 10
