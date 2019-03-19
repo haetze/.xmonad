@@ -26,5 +26,5 @@ Config { borderColor = "black"
                     ,Run Com "cat" [".xmonad/.radio"] "radio" 10
                     ,Run StdinReader
            ]
-       , template = "<fc=#ee9a00>%date%</fc>| %uname% | %battery% | <action=`amixer set Master 0` button=1> %sound% on %audio% </action> | %radio% |" 
+       , template = "<fc=#ee9a00>%date%</fc>|%battery%|<action=`amixer set Master 0` button=1>%sound% on %audio%</action>|%radio%|" 
        }
