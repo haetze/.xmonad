@@ -1,30 +1,42 @@
+Config { 
 
+   -- appearance
+     font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
+   , bgColor =      "black"
+   , fgColor =      "#646464"
+   , position =     Top
+   , border =       BottomB
+   , borderColor =  "#646464"
 
-Config { borderColor = "black"
-       , border = TopB
-       , bgColor = "black"
-       , fgColor = "grey"
-       , alpha = 255
-       , position = Top
-       , textOffset = -1
-       , iconOffset = -1
-       , lowerOnStart = True
-       , pickBroadest = False
-       , persistent = False
-       , hideOnStart = False
-       , iconRoot = "."
-       , allDesktops = True
-       , overrideRedirect = True
-       , sepChar = "%"
-       , additionalFonts = []
-       , alignSep = "}{"
-       , font = "xft:Open Sans:size=10, xft:Times New Roman-10:italic"
-       , commands = [Run Com ".xmonad/.battery" [] "battery" 10
-                    ,Run Com ".xmonad/.audio" [] "audio" 10
-                    ,Run Com ".xmonad/.snd" [] "sound" 10
-                    ,Run Com "cat" [".xmonad/.radio"] "radio" 10
-                    ,Run Com "cat" [".xmonad/.radio"] "radio" 10
-                    ,Run StdinReader
-           ]
-       , template = "<fc=#ee9a00>%date%</fc>|%battery%|<action=`amixer set Master 0` button=1>%sound% on %audio%</action>|%radio%|" 
-       }
+   -- layout
+   , sepChar =  "%"   -- delineator between plugin names and straight text
+   , alignSep = "}{"  -- separator between left-right alignment
+   , template = "%battery% | %cpu% | %memory% }{ %EDLW% | %date%  "
+
+   -- general behavior
+   , lowerOnStart =     True    -- send to bottom of window stack on start
+   , hideOnStart =      False   -- start with window unmapped (hidden)
+   , allDesktops =      True    -- show on all desktops
+   , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+   , pickBroadest =     False   -- choose widest display (multi-monitor)
+   , persistent =       True    -- enable/disable hiding (True = disabled)
+
+   , commands = 
+
+        -- weather monitor
+        [ Run Weather "EDLW" [ "--template"
+                             , "Dortmund <skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+                             ] 36000
+        , Run Cpu [ "-L"      , "3"
+                  , "-H"      , "50"
+	          , "--normal", "green"
+                  , "--high"  ,"red"
+	          ]
+	  10
+        , Run Memory [ "-t","Mem: <usedratio>%" ] 10		     
+        , Run Battery ["-t", "<acstatus>: <left>% - <timeleft>",
+	               "-h", "green",
+	               "-l", "red"
+	              ] 10
+        ]
+   }
